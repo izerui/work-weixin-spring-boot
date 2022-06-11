@@ -115,7 +115,7 @@ public class TenantTests {
     @Test
     public void testUpdateConfig() throws WxErrorException {
         ConfigOperator tenantOperator = cpService.getConfigOperator();
-        tenantOperator.setCorpSecret("k8s-local", "f4QXoH0x5KJgMnLBxoAik6NmKrcYA26ZEZCkz_f94uQ");
+        tenantOperator.setCorpSecret("k8s-local", "xxx");
         this.sendDemoMessage("k8s-local");
     }
 
