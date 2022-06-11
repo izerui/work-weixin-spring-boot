@@ -21,7 +21,7 @@
 </dependency>
 ```
 
-## 2. 自建多应用（租户）集成
+## 自建多应用（租户）集成
 * 引入`maven`依赖：
 ```xml
 <dependency>
@@ -117,7 +117,7 @@ public class MessageListener implements CpListener {
 }
 ```
 
-## 3. 服务商第三方应用集成
+## 服务商第三方应用集成
 * 引入`maven`依赖：
 ```xml
 <dependency>
