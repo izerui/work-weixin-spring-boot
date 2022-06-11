@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ureport>
+    <cell expand="None" name="A1" row="1" col="1">
+        <cell-style font-size="10" forecolor="255,255,255" bgcolor="84,23,23" bold="true" align="center"
+                    valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <simple-value><![CDATA[租户ID]]></simple-value>
+    </cell>
+    <cell expand="None" name="B1" row="1" col="2">
+        <cell-style font-size="10" forecolor="255,255,255" bgcolor="84,23,23" bold="true" align="center"
+                    valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <simple-value><![CDATA[企业ID]]></simple-value>
+    </cell>
+    <cell expand="None" name="C1" row="1" col="3">
+        <cell-style font-size="10" forecolor="255,255,255" bgcolor="84,23,23" bold="true" align="center"
+                    valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <simple-value><![CDATA[自建应用密钥]]></simple-value>
+    </cell>
+    <cell expand="None" name="D1" row="1" col="4">
+        <cell-style font-size="10" forecolor="255,255,255" bgcolor="84,23,23" bold="true" align="center"
+                    valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <simple-value><![CDATA[应用ID]]></simple-value>
+    </cell>
+    <cell expand="None" name="E1" row="1" col="5">
+        <cell-style font-size="10" forecolor="255,255,255" bgcolor="84,23,23" bold="true" align="center"
+                    valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <simple-value><![CDATA[第三方授权码]]></simple-value>
+    </cell>
+    <cell expand="None" name="F1" row="1" col="6">
+        <cell-style font-size="10" forecolor="255,255,255" bgcolor="84,23,23" bold="true" align="center"
+                    valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <simple-value><![CDATA[回调AESKEY]]></simple-value>
+    </cell>
+    <cell expand="None" name="G1" row="1" col="7">
+        <cell-style font-size="10" forecolor="255,255,255" bgcolor="84,23,23" bold="true" align="center"
+                    valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <simple-value><![CDATA[回调TOKEN]]></simple-value>
+    </cell>
+    <cell expand="Down" name="A2" row="2" col="1">
+        <cell-style font-size="10" bgcolor="237,225,225" align="left" valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <dataset-value dataset-name="datas" aggregate="select" property="tenantId" order="none"
+                       mapping-type="simple"></dataset-value>
+    </cell>
+    <cell expand="Down" name="B2" row="2" col="2">
+        <cell-style font-size="10" bgcolor="237,225,225" align="left" valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <dataset-value dataset-name="datas" aggregate="select" property="corpId" order="none"
+                       mapping-type="simple"></dataset-value>
+    </cell>
+    <cell expand="Down" name="C2" row="2" col="3">
+        <cell-style font-size="10" bgcolor="237,225,225" align="left" valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <dataset-value dataset-name="datas" aggregate="select" property="corpSecret" order="none"
+                       mapping-type="simple"></dataset-value>
+    </cell>
+    <cell expand="Down" name="D2" row="2" col="4">
+        <cell-style font-size="10" bgcolor="237,225,225" align="left" valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <dataset-value dataset-name="datas" aggregate="select" property="agentId" order="none"
+                       mapping-type="simple"></dataset-value>
+    </cell>
+    <cell expand="Down" name="E2" row="2" col="5">
+        <cell-style font-size="10" bgcolor="237,225,225" align="left" valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <dataset-value dataset-name="datas" aggregate="select" property="permanentCode" order="none"
+                       mapping-type="simple"></dataset-value>
+    </cell>
+    <cell expand="Down" name="F2" row="2" col="6">
+        <cell-style font-size="10" bgcolor="237,225,225" align="left" valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <dataset-value dataset-name="datas" aggregate="select" property="listenerAesKey" order="none"
+                       mapping-type="simple"></dataset-value>
+    </cell>
+    <cell expand="Down" name="G2" row="2" col="7">
+        <cell-style font-size="10" bgcolor="237,225,225" align="left" valign="middle">
+            <left-border width="1" style="solid" color="0,0,0"/>
+            <right-border width="1" style="solid" color="0,0,0"/>
+            <top-border width="1" style="solid" color="0,0,0"/>
+            <bottom-border width="1" style="solid" color="0,0,0"/>
+        </cell-style>
+        <dataset-value dataset-name="datas" aggregate="select" property="listenerToken" order="none"
+                       mapping-type="simple"></dataset-value>
+    </cell>
+    <cell expand="None" name="A3" row="3" col="1">
+        <cell-style font-size="10" align="center" valign="middle"></cell-style>
+        <simple-value><![CDATA[]]></simple-value>
+    </cell>
+    <cell expand="None" name="B3" row="3" col="2">
+        <cell-style font-size="10" align="center" valign="middle"></cell-style>
+        <simple-value><![CDATA[]]></simple-value>
+    </cell>
+    <cell expand="None" name="C3" row="3" col="3">
+        <cell-style font-size="10" align="center" valign="middle"></cell-style>
+        <simple-value><![CDATA[]]></simple-value>
+    </cell>
+    <cell expand="None" name="D3" row="3" col="4">
+        <cell-style font-size="10" align="center" valign="middle"></cell-style>
+        <simple-value><![CDATA[]]></simple-value>
+    </cell>
+    <cell expand="None" name="E3" row="3" col="5">
+        <cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"></cell-style>
+        <simple-value><![CDATA[]]></simple-value>
+    </cell>
+    <cell expand="None" name="F3" row="3" col="6">
+        <cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"></cell-style>
+        <simple-value><![CDATA[]]></simple-value>
+    </cell>
+    <cell expand="None" name="G3" row="3" col="7">
+        <cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"></cell-style>
+        <simple-value><![CDATA[]]></simple-value>
+    </cell>
+    <row row-number="1" height="18"/>
+    <row row-number="2" height="18"/>
+    <row row-number="3" height="18"/>
+    <column col-number="1" width="80"/>
+    <column col-number="2" width="80"/>
+    <column col-number="3" width="113"/>
+    <column col-number="4" width="109"/>
+    <column col-number="5" width="104"/>
+    <column col-number="6" width="74"/>
+    <column col-number="7" width="74"/>
+    <datasource name="configs" type="spring" bean="configDataSource">
+        <dataset name="datas" type="bean" method="getConfigDataSource"
+                 clazz="com.yj2025.weixin.work.WxProperties$CpConfig">
+            <field name="agentId"/>
+            <field name="corpId"/>
+            <field name="corpSecret"/>
+            <field name="listenerAesKey"/>
+            <field name="listenerToken"/>
+            <field name="msgAuditLibPath"/>
+            <field name="oauth2redirectUri"/>
+            <field name="permanentCode"/>
+            <field name="tenantId"/>
+            <field name="webhookKey"/>
+        </dataset>
+    </datasource>
+    <paper type="A4" left-margin="90" right-margin="90"
+           top-margin="72" bottom-margin="72" paging-mode="fitpage" fixrows="0"
+           width="595" height="842" orientation="portrait" html-report-align="left" bg-image=""
+           html-interval-refresh-value="0" column-enabled="false"></paper>
+</ureport>
