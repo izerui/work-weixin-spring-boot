@@ -126,7 +126,7 @@ public class MessageListener implements CpListener {
     <version>1.1.0</version>
 </dependency>
 ```
-* 声明配置(第三方应用服务商配置只支持通过配置文件声明):
+* 第三方服务商配置:
 ```properties
 work.weixin.storage=redis
 # enable listener
