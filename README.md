@@ -98,7 +98,7 @@ private CpService cpService;
 private CpService cpService;
 
 public void test() {
-    cpService.tenant("feike") // 这里指定租户例如： feike
+    cpService.tenant("feike", false) // 这里指定租户例如： feike  false:代表的是自建应用
         .getMessageService()
         .send(message);    
 }
@@ -193,6 +193,25 @@ public class MessageTpListener implements TpListener {
 
     }
 }
+```
+
+* 服务商调用授权企业接口:
+> 调用示例跟`cpService`保持一致
+
+```java
+@Autowired
+private CpService cpService;
+
+public void test() {
+    cpService.tenant("feike", true) // 这里指定租户例如： feike， true:代表是第三方应用
+        .getMessageService()
+        .send(message);    
+}
+```
+
+或者通过tpService获取对应的cpService
+```java
+tpService.getCpService("feike").getMessageService().send(message);
 ```
 
 注： TpService 为服务商接口调用对象，CpService为调用授权企业或者自建应用的接口调用对象。其他使用方式自行翻看源码。
