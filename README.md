@@ -30,68 +30,67 @@
     <version>1.1.0</version>
 </dependency>
 ```
-* 加载租户的应用配置
-  * 基础配置：
-  ```properties
-  work.weixin.storage=redis
-  # enable listener 是否开启web支持
-  work.weixin.listener-enabled=true
-  # 非必须，开启微信事件监听，输出地址。建议按实际暴露公网地址配置
-  work.weixin.callback-url=https://weixin-dev.yj2025.com
-  ```
-  * 静态声明租户配置:
-    ```properties
-    # default cp config
-    work.weixin.configs[0].tenant-id=feike
-    work.weixin.configs[0].corp-id=ww7c4f40dafaee2f4c
-    work.weixin.configs[0].corp-secret=XXX
-    work.weixin.configs[0].agent-id=1000014
-    work.weixin.configs[0].listener-token=XXX
-    work.weixin.configs[0].listener-aes-key=XXX
-    
-    work.weixin.configs[1].tenant-id=jingguan
-    work.weixin.configs[1].corp-id=ww7c4f40dafaee2f4c
-    work.weixin.configs[1].corp-secret=XXX
-    work.weixin.configs[1].agent-id=1000017
-    
-    work.weixin.configs[2].tenant-id=xiaochengxu
-    work.weixin.configs[2].corp-id=ww7c4f40dafaee2f4c
-    work.weixin.configs[2].corp-secret=XXX
-    work.weixin.configs[2].agent-id=1000049
-    work.weixin.configs[2].listener-token=XXX
-    work.weixin.configs[2].listener-aes-key=XXX
-    ```
+* 基础配置：
+```properties
+work.weixin.storage=redis
+# enable listener 是否开启web支持
+work.weixin.listener-enabled=true
+# 非必须，开启微信事件监听，输出地址。建议按实际暴露公网地址配置
+work.weixin.callback-url=https://weixin-dev.yj2025.com
+```
+* 静态声明租户配置:
+```properties
+# default cp config
+work.weixin.configs[0].tenant-id=feike
+work.weixin.configs[0].corp-id=ww7c4f40dafaee2f4c
+work.weixin.configs[0].corp-secret=XXX
+work.weixin.configs[0].agent-id=1000014
+work.weixin.configs[0].listener-token=XXX
+work.weixin.configs[0].listener-aes-key=XXX
 
-  * 动态租户配置(注册spring bean即可，指定tenantId调用的时候，缓存中没有会自动查找loader-bean进行动态加载)：
-    ```java
-    @Component
-    public class DynamicConfigLoader implements CpConfigLoader {
-        @Override
-        public WxProperties.CpConfig getConfig(String tenantId) {
-            return new WxProperties.CpConfig()
-                    .setTenantId("feike")
-                    .setCorpId("wx7003aae3ac")
-                    .setCorpSecret("f4Q3KJgMnLBxoAik6NmKrcYA26ZEZCkz_f94uQ")
-                    .setListenerToken("6HFXyimVN37E5f")
-                    .setListenerAesKey("oHhKlG1x37YXFkwg9Ncglm2wfIANxFAGn9")
-                    .setAgentId(1000003);
-        }
+work.weixin.configs[1].tenant-id=jingguan
+work.weixin.configs[1].corp-id=ww7c4f40dafaee2f4c
+work.weixin.configs[1].corp-secret=XXX
+work.weixin.configs[1].agent-id=1000017
+
+work.weixin.configs[2].tenant-id=xiaochengxu
+work.weixin.configs[2].corp-id=ww7c4f40dafaee2f4c
+work.weixin.configs[2].corp-secret=XXX
+work.weixin.configs[2].agent-id=1000049
+work.weixin.configs[2].listener-token=XXX
+work.weixin.configs[2].listener-aes-key=XXX
+```
+
+* 动态租户配置(注册spring bean即可，指定tenantId调用的时候，缓存中没有会自动查找loader-bean进行动态加载)：
+```java
+@Component
+public class DynamicConfigLoader implements CpConfigLoader {
+    @Override
+    public WxProperties.CpConfig getConfig(String tenantId) {
+        return new WxProperties.CpConfig()
+                .setTenantId("feike")
+                .setCorpId("wx7003aae3ac")
+                .setCorpSecret("f4Q3KJgMnLBxoAik6NmKrcYA26ZEZCkz_f94uQ")
+                .setListenerToken("6HFXyimVN37E5f")
+                .setListenerAesKey("oHhKlG1x37YXFkwg9Ncglm2wfIANxFAGn9")
+                .setAgentId(1000003);
     }
-    ```
+}
+```
 
-  * 亦可通过代码手动吸入缓存配置:
-    ```java
-    @Autowired
-    private CpService cpService;
-    
-            TenantConfigOperator configOperator = cpService.getConfigOperator();
-    // 手动配置
-            configOperator.setConfigs(...);
-    
-    // 保存租户对应的配置项
-            configOperator.setCorpId(tenantId, "...")
-            configOperator.setCorpSecret(tenantId, "...")
-    ```
+* 亦可通过代码手动吸入缓存配置:
+```java
+@Autowired
+private CpService cpService;
+
+        TenantConfigOperator configOperator = cpService.getConfigOperator();
+// 手动配置
+        configOperator.setConfigs(...);
+
+// 保存租户对应的配置项
+        configOperator.setCorpId(tenantId, "...")
+        configOperator.setCorpSecret(tenantId, "...")
+```
 
 * 接口调用:
 ```java
