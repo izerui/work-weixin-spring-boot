@@ -95,7 +95,7 @@ public class TpCallbackController implements CommandLineRunner {
      *
      * @return
      */
-    @GetMapping("/")
+    @GetMapping("/app/installed")
     public String home(@RequestParam(value = "auth_code", required = false) String authCode,
                        @RequestParam(value = "expires_in", required = false) String expiresIn,
                        @RequestParam(value = "state", required = false) String state,
@@ -132,7 +132,7 @@ public class TpCallbackController implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        log.info(BLUE(":::: 第三方应用安装回调地址: " + properties.getCallbackUrl()));
+        log.info(BLUE(":::: 第三方应用安装回调地址: " + properties.getCallbackUrl() + "/app/installed"));
         log.info(BLUE(":::: 第三方应用回调地址: " + properties.getCallbackUrl() + "/message"));
         log.info(BLUE(":::: 第三方应用可信域名配置地址: " + properties.getCallbackUrl() + "/" + jsSdkVerify.getVerifyTxtPath()));
     }

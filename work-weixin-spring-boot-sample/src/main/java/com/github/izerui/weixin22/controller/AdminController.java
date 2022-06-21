@@ -26,7 +26,7 @@ public class AdminController {
     public String getPreAuthUrl(@ApiParam("租户ID") @RequestParam("tenantId") String tenantId,
                                 @ApiParam("0:正式、1:测试") @RequestParam("authType") Integer authType) throws WxErrorException {
 
-        String preAuthUrl = tpService.getPreAuthUrl(properties.getCallbackUrl(), tenantId, 1);
+        String preAuthUrl = tpService.getPreAuthUrl(properties.getCallbackUrl() + "/app/installed", tenantId, 1);
         return preAuthUrl;
     }
 
