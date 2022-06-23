@@ -27,7 +27,7 @@
 <dependency>
     <groupId>io.github.izerui</groupId>
     <artifactId>work-weixin-spring-boot-starter</artifactId>
-    <version>1.1.5</version>
+    <version>1.1.6</version>
 </dependency>
 ```
 * 基础配置：
@@ -124,7 +124,7 @@ public class MessageListener implements CpListener {
 <dependency>
     <groupId>io.github.izerui</groupId>
     <artifactId>work-weixin-spring-boot-starter</artifactId>
-    <version>1.1.5</version>
+    <version>1.1.6</version>
 </dependency>
 ```
 * 第三方服务商配置:

@@ -7,7 +7,7 @@
     <groupId>io.github.izerui</groupId>
     <artifactId>work-weixin-spring-boot</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.5</version>
+    <version>1.1.6</version>
     <modules>
         <module>work-weixin-spring-boot-autoconfigure</module>
         <module>work-weixin-spring-boot-sample</module>
