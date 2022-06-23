@@ -3,9 +3,7 @@ package com.github.izerui.weixin.impl;
 import com.github.izerui.weixin.TpLicenseService;
 import com.github.izerui.weixin.TpService;
 import com.github.izerui.weixin.WxProperties;
-import com.github.izerui.weixin.impl.mapping.ListOrderAccountsResp;
-import com.github.izerui.weixin.impl.mapping.RenewUserJobReq;
-import com.github.izerui.weixin.impl.mapping.RenewUserJobResp;
+import com.github.izerui.weixin.impl.mapping.*;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -113,5 +111,22 @@ public class TpLicenseServiceImpl implements TpLicenseService {
         String access_token = tpService.getWxCpProviderToken();
         String respJson = tpService.post(tpService.getWxCpTpConfigStorage().getApiUrl("/cgi-bin/license/list_order_account") + "?provider_access_token=" + access_token, jsonObject.toString(), true);
         return ListOrderAccountsResp.fromJson(respJson);
+    }
+
+    @Override
+    public TransferLicenseResp batchTransferLicense(String tenantId, List<TransferLicenseRep> transferLicenseReps) throws WxErrorException {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("corpid", tpService.getConfigOperator().getCorpId(tenantId));
+        JsonArray jsonArray = new JsonArray();
+        transferLicenseReps.stream().map(s -> {
+            JsonObject obj = new JsonObject();
+            obj.addProperty("handover_userid", s.getHandoverUserId());
+            obj.addProperty("takeover_userid", s.getTakeoverUserId());
+            return obj;
+        }).forEach(jsonArray::add);
+        jsonObject.add("transfer_list", jsonArray);
+        String access_token = tpService.getWxCpProviderToken();
+        String post = tpService.post(tpService.getWxCpTpConfigStorage().getApiUrl("/cgi-bin/license/batch_transfer_license") + "?provider_access_token=" + access_token, jsonObject.toString(), true);
+        return TransferLicenseResp.fromJson(post);
     }
 }
