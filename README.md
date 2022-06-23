@@ -27,7 +27,7 @@
 <dependency>
     <groupId>io.github.izerui</groupId>
     <artifactId>work-weixin-spring-boot-starter</artifactId>
-    <version>1.1.3</version>
+    <version>1.1.4</version>
 </dependency>
 ```
 * 基础配置：
@@ -110,8 +110,9 @@ public void test() {
 public class MessageListener implements CpListener {
 
     @Override
-    public void listener(String tenantId, WxCpXmlMessage wxMessage, CpService wxCpService) {
+    public void listener(String tenantId, WxCpTpPermanentCodeInfo authInfo, HttpServletRequest request, HttpServletResponse response) {
         log.info("tenatnId: {} wxMessage: \n{}", BLUE(tenantId), MAGENTA(gson.toJson(wxMessage)));
+        // 可以利用 response 跳转等。。。
     }
     
 }
@@ -123,7 +124,7 @@ public class MessageListener implements CpListener {
 <dependency>
     <groupId>io.github.izerui</groupId>
     <artifactId>work-weixin-spring-boot-starter</artifactId>
-    <version>1.1.3</version>
+    <version>1.1.4</version>
 </dependency>
 ```
 * 第三方服务商配置:

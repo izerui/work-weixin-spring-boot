@@ -95,8 +95,8 @@ public class TpCallbackController implements CommandLineRunner {
      *
      * @return
      */
-    @GetMapping("/app/installed")
-    public String home(@RequestParam(value = "auth_code", required = false) String authCode,
+    @GetMapping("/installed")
+    public void home(@RequestParam(value = "auth_code", required = false) String authCode,
                        @RequestParam(value = "expires_in", required = false) String expiresIn,
                        @RequestParam(value = "state", required = false) String state,
                        HttpServletRequest request,
@@ -123,16 +123,14 @@ public class TpCallbackController implements CommandLineRunner {
             log.info(ColorOutput.BLUE(outputContent.replace("</br>", "\n")));
             final WxCpTpPermanentCodeInfo finalInfo = info;
             authBindingListeners.forEach(authBindingListener -> {
-                authBindingListener.listener(state, finalInfo);
+                authBindingListener.listener(state, finalInfo, request, response);
             });
         }
-
-        return outputContent;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        log.info(BLUE(":::: 第三方应用安装回调地址: " + properties.getCallbackUrl() + "/app/installed"));
+        log.info(BLUE(":::: 第三方应用安装回调地址: " + properties.getCallbackUrl() + "/installed"));
         log.info(BLUE(":::: 第三方应用回调地址: " + properties.getCallbackUrl() + "/message"));
         log.info(BLUE(":::: 第三方应用可信域名配置地址: " + properties.getCallbackUrl() + "/" + jsSdkVerify.getVerifyTxtPath()));
     }
