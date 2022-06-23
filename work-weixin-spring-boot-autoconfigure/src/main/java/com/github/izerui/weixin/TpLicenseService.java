@@ -1,8 +1,6 @@
 package com.github.izerui.weixin;
 
-import com.github.izerui.weixin.impl.mapping.ListOrderAccountsResp;
-import com.github.izerui.weixin.impl.mapping.RenewUserJobReq;
-import com.github.izerui.weixin.impl.mapping.RenewUserJobResp;
+import com.github.izerui.weixin.impl.mapping.*;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.cp.bean.WxCpBaseResp;
 
@@ -74,5 +72,15 @@ public interface TpLicenseService {
      * @throws WxErrorException
      */
     WxCpBaseResp activeAccount(String tenantId, String activeCode, String authUserId) throws WxErrorException;
+
+    /**
+     *
+     * 批量转移成员
+     * @param tenantId 租户ID
+     * @param transferLicenseReps handoverUserId:企业转移成员userid takeoverUserId:接收成员userid 均只支持加密的userid
+     * @return WxCpTransferRespVo
+     * @throws WxErrorException
+     */
+    TransferLicenseResp batchTransferLicense(String tenantId, List<TransferLicenseRep> transferLicenseReps) throws WxErrorException;
 
 }
