@@ -27,7 +27,7 @@
 <dependency>
     <groupId>io.github.izerui</groupId>
     <artifactId>work-weixin-spring-boot-starter</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.6</version>
 </dependency>
 ```
 * 基础配置：
@@ -110,7 +110,7 @@ public void test() {
 public class MessageListener implements CpListener {
 
     @Override
-    public void listener(String tenantId, WxCpXmlMessage wxMessage, CpService wxCpService) {
+    public void listener(String tenantId, WxCpTpPermanentCodeInfo authInfo) {
         log.info("tenatnId: {} wxMessage: \n{}", BLUE(tenantId), MAGENTA(gson.toJson(wxMessage)));
     }
     
@@ -123,7 +123,7 @@ public class MessageListener implements CpListener {
 <dependency>
     <groupId>io.github.izerui</groupId>
     <artifactId>work-weixin-spring-boot-starter</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.6</version>
 </dependency>
 ```
 * 第三方服务商配置:
@@ -146,7 +146,7 @@ public class TenantAuthBindingListener implements AuthBindingListener {
 
 
     @Override
-    public void listener(String tenantId, WxCpTpPermanentCodeInfo authInfo) {
+    public void listener(String tenantId, WxCpTpPermanentCodeInfo authInfo, HttpServletRequest request, HttpServletResponse response) {
         // 授权企业id
         String authCorpId = authInfo.getAuthCorpInfo().getCorpId();
         // 授权企业的应用id
@@ -154,6 +154,7 @@ public class TenantAuthBindingListener implements AuthBindingListener {
         // 授权企业的永久授权码
         String authPermanentCode = authInfo.getPermanentCode();
         // 尽量保存到企业的持久记录中,续业务自行建立监听器进行处理
+        // 可以利用 response 跳转等。。。
         ...
     }
 }

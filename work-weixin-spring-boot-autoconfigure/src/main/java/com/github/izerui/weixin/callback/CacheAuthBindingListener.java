@@ -5,6 +5,9 @@ import com.github.izerui.weixin.WxProperties;
 import com.github.izerui.weixin.provider.AuthBindingListener;
 import me.chanjar.weixin.cp.bean.WxCpTpPermanentCodeInfo;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 public class CacheAuthBindingListener implements AuthBindingListener {
 
     private CpService cpService;
@@ -14,7 +17,7 @@ public class CacheAuthBindingListener implements AuthBindingListener {
     }
 
     @Override
-    public void listener(String tenantId, WxCpTpPermanentCodeInfo authInfo) {
+    public void listener(String tenantId, WxCpTpPermanentCodeInfo authInfo, HttpServletRequest request, HttpServletResponse response) {
         WxProperties.TpAuthConfig tpAuthConfig = new WxProperties.TpAuthConfig()
                 .setTenantId(tenantId)
                 .setCorpId(authInfo.getAuthCorpInfo().getCorpId())
