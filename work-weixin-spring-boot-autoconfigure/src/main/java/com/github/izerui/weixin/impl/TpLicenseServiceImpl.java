@@ -103,6 +103,23 @@ public class TpLicenseServiceImpl implements TpLicenseService {
     }
 
     @Override
+    public ActiveAccountResp batchActiveAccount(String tenantId, List<ActiveAccountRep> activeAccountReps) throws WxErrorException {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("corpid",tpService.getConfigOperator().getCorpId(tenantId));
+        JsonArray jsonArray = new JsonArray();
+        activeAccountReps.stream().map(s->{
+            JsonObject obj = new JsonObject();
+            obj.addProperty("active_code", s.getActiveCode());
+            obj.addProperty("userid", s.getAuthUserId());
+            return obj;
+        }).forEach(jsonArray::add);
+        jsonObject.add("active_list", jsonArray);
+        String access_token = tpService.getWxCpProviderToken();
+        String post = tpService.post(tpService.getWxCpTpConfigStorage().getApiUrl("/cgi-bin/license/batch_active_account") + "?provider_access_token=" + access_token, jsonObject.toString(), true);
+        return ActiveAccountResp.fromJson(post);
+    }
+
+    @Override
     public ListOrderAccountsResp listOrderAccounts(String orderId, Integer limit, String cursor) throws WxErrorException {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("order_id", orderId);
