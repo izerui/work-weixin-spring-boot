@@ -61,7 +61,7 @@ public interface TpLicenseService {
      */
     ListOrderAccountsResp listOrderAccounts(String orderId, Integer limit, String cursor) throws WxErrorException;
 
-    /**
+     /**
      * https://developer.work.weixin.qq.com/document/path/95553
      * 激活账号，以进一步可使第三方应用拥有接口的调用许可
      *
@@ -72,6 +72,15 @@ public interface TpLicenseService {
      * @throws WxErrorException
      */
     WxCpBaseResp activeAccount(String tenantId, String activeCode, String authUserId) throws WxErrorException;
+
+    /**
+     * 批量激活账号
+     * @param tenantId 租户ID
+     * @param  activeAccountReps 激活码、企业成员id
+     * @return ActiveAccountResp
+     * @Throws WxErrorException
+     */
+    ActiveAccountResp batchActiveAccount(String tenantId,List<ActiveAccountRep> activeAccountReps) throws WxErrorException;
 
     /**
      *
