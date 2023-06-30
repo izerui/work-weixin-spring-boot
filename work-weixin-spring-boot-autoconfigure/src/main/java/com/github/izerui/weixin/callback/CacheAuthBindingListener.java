@@ -3,10 +3,10 @@ package com.github.izerui.weixin.callback;
 import com.github.izerui.weixin.CpService;
 import com.github.izerui.weixin.WxProperties;
 import com.github.izerui.weixin.provider.AuthBindingListener;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import me.chanjar.weixin.cp.bean.WxCpTpPermanentCodeInfo;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class CacheAuthBindingListener implements AuthBindingListener {
 

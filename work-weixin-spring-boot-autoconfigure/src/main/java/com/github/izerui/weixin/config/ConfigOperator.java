@@ -161,4 +161,8 @@ public interface ConfigOperator {
     List<WxProperties.CpConfig> getConfigs();
 
     Set<String> getTenantIds();
+
+    String getMsgAuditSecret(String tenantId);
+
+    String getMsgAuditPriKey(String tenantId);
 }

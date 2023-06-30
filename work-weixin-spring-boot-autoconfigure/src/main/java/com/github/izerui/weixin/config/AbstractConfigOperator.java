@@ -325,4 +325,13 @@ public abstract class AbstractConfigOperator implements ConfigOperator {
         return getLockIfAvailable(tenantId, tenantAgentJsapiTicketLock);
     }
 
+    @Override
+    public String getMsgAuditSecret(String tenantId) {
+        return get(KeyConstants.MSG_AUDIT_SECRET_KEY.apply(tenantId));
+    }
+
+    @Override
+    public String getMsgAuditPriKey(String tenantId) {
+        return get(KeyConstants.MSG_AUDIT_PRIKEY_KEY.apply(tenantId));
+    }
 }

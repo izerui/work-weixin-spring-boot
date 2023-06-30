@@ -294,4 +294,14 @@ public class ConfigAdpatderImpl implements ConfigStorageAdpatder {
         return configOperator.getWebhookKey(tenantId());
     }
 
+    @Override
+    public String getMsgAuditPriKey() {
+        return configOperator.getMsgAuditPriKey(tenantId());
+    }
+
+    @Override
+    public String getMsgAuditSecret() {
+        return configOperator.getMsgAuditSecret(tenantId());
+    }
+
 }

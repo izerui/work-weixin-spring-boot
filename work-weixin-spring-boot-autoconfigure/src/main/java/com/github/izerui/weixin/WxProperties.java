@@ -71,7 +71,7 @@ public class WxProperties {
     }
 
     @Data
-    @NoArgsConstructor
+    @NoArgsConstructor(force = true)
     @Accessors(chain = true)
     @ToString
     public static class TpConfig implements Serializable {
@@ -119,7 +119,7 @@ public class WxProperties {
     }
 
     @Data
-    @NoArgsConstructor
+    @NoArgsConstructor(force = true)
     @Accessors(chain = true)
     @ToString
     public static class CpConfig implements Serializable {
@@ -157,7 +157,7 @@ public class WxProperties {
     }
 
     @Data
-    @NoArgsConstructor
+    @NoArgsConstructor(force = true)
     @Accessors(chain = true)
     @ToString
     public static class TpAuthConfig implements Serializable {

@@ -21,4 +21,6 @@ public final class KeyConstants {
     public final static Function<String, String> ACCESSTOKEN_KEY = s -> String.format("work:weixin:accessToken:%s", s);
     public final static Function<String, String> OAUTH2REDIRECTURI_KEY = s -> String.format("work:weixin:oauth2redirectUri:%s", s);
     public final static Function<String, String> WEBHOOKKEY_KEY = s -> String.format("work:weixin:webhookKey:%s", s);
+    public final static Function<String, String> MSG_AUDIT_SECRET_KEY = s -> String.format("work:weixin:msgAuditSecret:%s", s);
+    public final static Function<String, String> MSG_AUDIT_PRIKEY_KEY = s -> String.format("work:weixin:msgAuditPriKey:%s", s);
 }
